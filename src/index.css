@@ -29,11 +29,6 @@ body {
   background-color: var(--Magnolia);
 }
 
-main {
-  display: flex;
-  flex-direction: column;
-}
-
 .title {
   color: var(--Marine-blue);
 }
@@ -46,7 +41,7 @@ main {
 
 label {
   color: var(--Marine-blue);
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .input {
@@ -64,19 +59,26 @@ input[type="radio"] {
 }
 
 .radio-lbl {
-  padding: 15px;
+  padding: 10px 15px;
+  height: 70px;
   display: flex;
-  align-items: center;
-  gap: 5px;
+  align-items: flex-start;
+  gap: 15px;
+  border: 1px solid var(--Cool-gray);
+  border-radius: 5px;
+}
+
+.radio-lbl span {
+  color: var(--Cool-gray);
+  font-size: 0.9rem;
 }
 
 input[type="radio"]:checked + label {
-  background-color: #58ba83;
+  border: 1px solid var(--Purplish-blue);
 }
 
 .side-bar-mob {
   width: 100%;
-  /* position: relative; */
 }
 
 .form {
@@ -87,21 +89,31 @@ input[type="radio"]:checked + label {
   background-color: var(--White);
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: 25px;
   border-radius: 10px;
   gap: 10px;
   justify-content: center;
-  /* align-items: center; */
+}
+
+.links-wrapper {
+  display: flex;
+  justify-content: space-around;
 }
 
 .next-page-btn {
-  /* width: 140px; */
-  align-self: flex-end;
-  margin-right: 40px;
-  display: block;
   text-decoration: none;
   background-color: var(--Marine-blue);
   color: var(--White);
   padding: 10px 20px;
   border-radius: 5px;
+}
+
+.switch-btn {
+  margin-top: 20px;
+  border: none;
+  background-color: transparent;
+  color: var(--Marine-blue);
+  font-family: "Ubuntu", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
 }

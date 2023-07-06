@@ -13,8 +13,8 @@ function Page2({ formData, handleChange }) {
     <main>
       <img src={sidebar} alt="" className="side-bar-mob" />
       <form className="form">
-        <h1>Select your plan</h1>
-        <p>You have the option of monthly or yearly billing</p>
+        <h1 className="title">Select your plan</h1>
+        <p className="text">You have the option of monthly or yearly billing</p>
 
         {planType ? (
           <>
@@ -28,7 +28,9 @@ function Page2({ formData, handleChange }) {
             />
             <label htmlFor="monthly-arcade" className="radio-lbl">
               <img src={iconArcade} alt="icon" />
-              Arcade <span>$9/mo</span>
+              <div>
+                <p>Arcade</p> <span>$9/mo</span>
+              </div>
               <br />
             </label>
             <input
@@ -41,7 +43,9 @@ function Page2({ formData, handleChange }) {
             />
             <label htmlFor="monthly-advanced" className="radio-lbl">
               <img src={iconAdvanced} alt="icon" />
-              advanced <span>$12/mo</span>
+              <div>
+                <p>advanced</p> <span>$12/mo</span>
+              </div>
             </label>
             <input
               type="radio"
@@ -53,7 +57,9 @@ function Page2({ formData, handleChange }) {
             />
             <label htmlFor="monthly-pro" className="radio-lbl">
               <img src={iconPro} alt="icon" />
-              pro <span>$15/mo</span>
+              <div>
+                <p>pro</p> <span>$15/mo</span>
+              </div>
             </label>
           </>
         ) : (
@@ -68,8 +74,10 @@ function Page2({ formData, handleChange }) {
             />
             <label htmlFor="yearly-arcade" className="radio-lbl">
               <img src={iconArcade} alt="icon" />
-              Arcade <span>$90/mo</span>
-              <p>2 months free</p>
+              <div>
+                <p>Arcade</p> <span>$90/mo</span>
+                <p>2 months free</p>
+              </div>
             </label>
             <input
               type="radio"
@@ -81,8 +89,10 @@ function Page2({ formData, handleChange }) {
             />
             <label htmlFor="yearly-advanced" className="radio-lbl">
               <img src={iconAdvanced} alt="icon" />
-              advanced <span>$120/mo</span>
-              <p>2 months free</p>
+              <div>
+                <p>advanced</p> <span>$120/mo</span>
+                <p>2 months free</p>
+              </div>
             </label>
             <input
               type="radio"
@@ -94,20 +104,35 @@ function Page2({ formData, handleChange }) {
             />
             <label htmlFor="yearly-pro" className="radio-lbl">
               <img src={iconPro} alt="icon" />
-              pro <span>$150/mo</span>
-              <p>2 months free</p>
+              <div>
+                <p>pro</p> <span>$150/mo</span>
+                <p>2 months free</p>
+              </div>
             </label>
           </>
         )}
 
-        <button type="button" onClick={() => setPlanType((prev) => !prev)}>
-          month-year
+        <button
+          type="button"
+          className="switch-btn"
+          onClick={() => setPlanType((prev) => !prev)}
+        >
+          <span>Monthly </span>
+          {planType ? (
+            <i className="fa-solid fa-toggle-on fa-rotate-180 fa-2xl"></i>
+          ) : (
+            <i className="fa-solid fa-toggle-on fa-2xl"></i>
+          )}
+
+          <span> Yearly</span>
         </button>
       </form>
-      <Link to="/page3" className="next-page-btn">
-        next step
-      </Link>
-      <Link to="/">go back</Link>
+      <div className="links-wrapper">
+        <Link to="/">go back</Link>
+        <Link to="/page3" className="next-page-btn">
+          next step
+        </Link>
+      </div>
     </main>
   );
 }
