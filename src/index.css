@@ -29,6 +29,10 @@ body {
   background-color: var(--Magnolia);
 }
 
+.error-msg {
+  color: var(--Strawberry-red);
+}
+
 .title {
   color: var(--Marine-blue);
 }

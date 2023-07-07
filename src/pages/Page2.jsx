@@ -6,12 +6,24 @@ import iconAdvanced from "../assets/images/icon-advanced.svg";
 import iconPro from "../assets/images/icon-pro.svg";
 
 function Page2({ formData, handleChange, planType, handlePlanType }) {
+  const [errorMsg, setErrorMsg] = useState("");
+
+  const isLinkDisabled = formData.plan.length === 0;
+
+  function onNextPage(event) {
+    if (isLinkDisabled) {
+      event.preventDefault();
+      setErrorMsg("Please choose option");
+    }
+  }
+
   return (
     <main>
       <img src={sidebar} alt="" className="side-bar-mob" />
       <form className="form">
         <h1 className="title">Select your plan</h1>
         <p className="text">You have the option of monthly or yearly billing</p>
+        <p className="error-msg">{errorMsg}</p>
 
         {planType ? (
           <>
@@ -122,7 +134,7 @@ function Page2({ formData, handleChange, planType, handlePlanType }) {
       </form>
       <div className="links-wrapper">
         <Link to="/">go back</Link>
-        <Link to="/page3" className="next-page-btn">
+        <Link to="/page3" className="next-page-btn" onClick={onNextPage}>
           next step
         </Link>
       </div>
