@@ -5,10 +5,7 @@ import iconArcade from "../assets/images/icon-arcade.svg";
 import iconAdvanced from "../assets/images/icon-advanced.svg";
 import iconPro from "../assets/images/icon-pro.svg";
 
-function Page2({ formData, handleChange }) {
-  // console.log(formData);
-  const [planType, setPlanType] = useState(true);
-
+function Page2({ formData, handleChange, planType, handlePlanType }) {
   return (
     <main>
       <img src={sidebar} alt="" className="side-bar-mob" />
@@ -112,11 +109,7 @@ function Page2({ formData, handleChange }) {
           </>
         )}
 
-        <button
-          type="button"
-          className="switch-btn"
-          onClick={() => setPlanType((prev) => !prev)}
-        >
+        <button type="button" className="switch-btn" onClick={handlePlanType}>
           <span>Monthly </span>
           {planType ? (
             <i className="fa-solid fa-toggle-on fa-rotate-180 fa-2xl"></i>

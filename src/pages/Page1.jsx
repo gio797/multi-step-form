@@ -42,7 +42,7 @@ function Page1({ formData, handleChange }) {
           value={formData.phoneNumber}
         />
       </form>
-      <Link to="/page2" className="next-page-btn">
+      <Link to="/page2" className="next-page-btn-page-one">
         next step
       </Link>
     </main>

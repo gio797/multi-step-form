@@ -91,8 +91,11 @@ input[type="radio"]:checked + label {
   flex-direction: column;
   padding: 25px;
   border-radius: 10px;
-  gap: 10px;
+  gap: 15px;
   justify-content: center;
+  box-shadow: 10px 11px 21px 1px rgba(128, 119, 119, 0.75);
+  -webkit-box-shadow: 10px 11px 21px 1px rgba(128, 119, 119, 0.75);
+  -moz-box-shadow: 10px 11px 21px 1px rgba(128, 119, 119, 0.75);
 }
 
 .links-wrapper {
@@ -115,5 +118,43 @@ input[type="radio"]:checked + label {
   color: var(--Marine-blue);
   font-family: "Ubuntu", sans-serif;
   font-size: 1rem;
+  font-weight: 500;
+}
+
+.next-page-btn-page-one {
+  margin-left: auto;
+  margin-right: 10%;
+  display: block;
+  width: 109px;
+  text-decoration: none;
+  background-color: var(--Marine-blue);
+  color: var(--White);
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.checkbox-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.checkbox-wrapper {
+  padding: 10px 15px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border: 1px solid var(--Cool-gray);
+  border-radius: 5px;
+}
+
+.info {
+  color: var(--Cool-gray);
+  font-size: 0.9rem;
+}
+
+.price {
+  color: var(--Purplish-blue);
+  font-size: 0.8rem;
   font-weight: 500;
 }

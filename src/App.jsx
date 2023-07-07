@@ -11,7 +11,19 @@ function App() {
     eMail: "",
     phoneNumber: "",
     plan: "",
+    monthlyOnlineService: false,
+    monthlyLargeStorage: false,
+    monthlyCustomizableProfile: false,
+    yearlyOnlineService: false,
+    yearlyLargeStorage: false,
+    yearlyCustomizableProfile: false,
   });
+
+  const [planType, setPlanType] = useState(true);
+
+  function handlePlanType() {
+    setPlanType((prev) => !prev);
+  }
 
   console.log(formData);
 
@@ -35,11 +47,24 @@ function App() {
         />
         <Route
           path="/page2"
-          element={<Page2 handleChange={handleChange} formData={formData} />}
+          element={
+            <Page2
+              handleChange={handleChange}
+              formData={formData}
+              handlePlanType={handlePlanType}
+              planType={planType}
+            />
+          }
         />
         <Route
           path="/page3"
-          element={<Page3 handleChange={handleChange} formData={formData} />}
+          element={
+            <Page3
+              handleChange={handleChange}
+              formData={formData}
+              planType={planType}
+            />
+          }
         />
         <Route
           path="/page4"
