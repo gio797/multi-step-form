@@ -1,9 +1,10 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { useState } from "react";
 import Page1 from "./pages/Page1";
 import Page2 from "./pages/Page2";
 import Page3 from "./pages/Page3";
 import Page4 from "./pages/Page4";
-import { useState } from "react";
+import Page5 from "./pages/Page5";
 
 function App() {
   const [formData, setFormData] = useState({
@@ -68,8 +69,16 @@ function App() {
         />
         <Route
           path="/page4"
-          element={<Page4 handleChange={handleChange} formData={formData} />}
+          element={
+            <Page4
+              handleChange={handleChange}
+              formData={formData}
+              planType={planType}
+            />
+          }
         />
+
+        <Route path="/page5" element={<Page5 />} />
       </Routes>
     </Router>
   );
