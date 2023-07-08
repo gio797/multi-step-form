@@ -11,8 +11,6 @@ function Page1({ formData, handleChange }) {
   const isInitialRender = useRef(true);
   const [firstTry, setFirstTry] = useState(true);
 
-  // console.log(isInitialRender.current);
-
   const isEmailCorrect =
     formData.eMail.length === 0 || !formData.eMail.includes("@");
 
@@ -44,7 +42,6 @@ function Page1({ formData, handleChange }) {
       isInitialRender.current = false;
     } else {
       checkInputs();
-      console.log(formData.name, nameErrorMsg);
     }
   }, [formData.name, formData.eMail, formData.phoneNumber, firstTry]);
 
