@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import sidebar from "../assets/images/bg-sidebar-mobile.svg";
 import sidebarDesk from "../assets/images/bg-sidebar-desktop.svg";
@@ -8,6 +8,10 @@ function Page1({ formData, handleChange }) {
   const [mailErrorMsg, setMailErrorMsg] = useState("");
   const [phNumberErrorMsg, setPhNumberErrorMsg] = useState("");
 
+  const isInitialRender = useRef(true);
+
+  // console.log(isInitialRender.current);
+
   const isEmailCorrect =
     formData.eMail.length === 0 || !formData.eMail.includes("@");
 
@@ -16,20 +20,36 @@ function Page1({ formData, handleChange }) {
     isEmailCorrect ||
     formData.phoneNumber.length === 0;
 
+  function checkInputs() {
+    if (formData.name.length === 0) {
+      setNameErrorMsg("Please fill in the input field.");
+    } else setNameErrorMsg("");
+
+    if (formData.eMail.length === 0) {
+      setMailErrorMsg("Please fill in the input field.");
+    } else if (!formData.eMail.includes("@")) {
+      setMailErrorMsg("The email address is not formatted correctly");
+    } else setMailErrorMsg("");
+
+    if (formData.phoneNumber.length === 0) {
+      setPhNumberErrorMsg("Please fill in the input field.");
+    } else setPhNumberErrorMsg("");
+  }
+
+  useEffect(() => {
+    if (isInitialRender.current) {
+      isInitialRender.current = false;
+      return;
+    } else {
+      checkInputs();
+      console.log(formData.name, nameErrorMsg);
+    }
+  }, [formData.name, formData.eMail, formData.phoneNumber]);
+
   function onNextPage(event) {
     if (isLinkDisabled) {
       event.preventDefault();
-      if (formData.name.length === 0) {
-        setNameErrorMsg("Please fill in the input field.");
-      }
-      if (formData.eMail.length === 0) {
-        setMailErrorMsg("Please fill in the input field.");
-      } else if (!formData.eMail.includes("@")) {
-        setMailErrorMsg("The email address is not formatted correctly");
-      }
-      if (formData.phoneNumber.length === 0) {
-        setPhNumberErrorMsg("Please fill in the input field.");
-      }
+      checkInputs();
     }
   }
 
