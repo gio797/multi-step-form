@@ -91,7 +91,7 @@ input[type="radio"]:checked + label {
   display: none;
 }
 
-.bubble-wrapper {
+.bubbles-wrapper {
   position: relative;
   display: flex;
   justify-content: center;
@@ -114,6 +114,27 @@ input[type="radio"]:checked + label {
 .bubble.active {
   background-color: var(--Light-blue);
   color: var(--Marine-blue);
+}
+
+.bubble-box {
+  display: flex;
+  gap: 20px;
+}
+
+.bubble-info {
+  display: none;
+  /* width: 120px; */
+}
+
+.bubble-info-step {
+  color: var(--Cool-gray);
+  text-transform: uppercase;
+}
+
+.bubble-info-title {
+  color: var(--White);
+  text-transform: uppercase;
+  font-weight: 500;
 }
 
 .form {
@@ -141,7 +162,9 @@ input[type="radio"]:checked + label {
 
 .links-wrapper {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  position: relative;
+  top: 180px;
 }
 
 .next-page-btn {
@@ -223,7 +246,6 @@ input[type="radio"]:checked + label {
 }
 
 .submit-btn {
-  margin-top: 20px;
   background-color: var(--Purplish-blue);
   font-family: inherit;
   font-size: 1rem;
@@ -234,6 +256,10 @@ input[type="radio"]:checked + label {
   border-radius: 5px;
 }
 
+.submit-btn:hover {
+  background-color: hsl(244, 98%, 77%);
+}
+
 @media (min-width: 500px) {
   body {
     display: flex;
@@ -242,10 +268,12 @@ input[type="radio"]:checked + label {
   }
 
   main {
+    position: relative;
     background-color: var(--White);
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 40px;
     padding: 20px;
     border-radius: 20px;
     box-shadow: 10px 11px 21px 1px rgba(128, 119, 119, 0.75);
@@ -258,27 +286,31 @@ input[type="radio"]:checked + label {
   }
 
   .side-bar-desk {
-    display: unset;
+    display: block;
   }
 
   .form {
     position: unset;
     box-shadow: unset;
+    width: 450px;
   }
 
-  .bubble-wrapper {
-    /* position: rel; */
+  .bubbles-wrapper {
+    position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    top: -130px;
-    left: -200px;
-    gap: 20px;
+    top: 70px;
+    left: 50px;
+    gap: 30px;
   }
 
   .links-wrapper {
-    position: relative;
-    top: 250px;
-    left: -300px;
+    position: unset;
+    margin-top: 30px;
+  }
+
+  .bubble-info {
+    display: block;
   }
 }

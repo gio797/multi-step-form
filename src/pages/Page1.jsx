@@ -37,11 +37,35 @@ function Page1({ formData, handleChange }) {
     <main>
       <img src={sidebar} alt="" className="side-bar-mob" />
       <img src={sidebarDesk} alt="" className="side-bar-desk" />
-      <div className="bubble-wrapper">
-        <div className="bubble active">1</div>
-        <div className="bubble">2</div>
-        <div className="bubble">3</div>
-        <div className="bubble">4</div>
+      <div className="bubbles-wrapper">
+        <div className="bubble-box">
+          <div className="bubble active">1</div>
+          <div className="bubble-info">
+            <p className="bubble-info-step">step 1</p>
+            <p className="bubble-info-title">your info </p>
+          </div>
+        </div>
+        <div className="bubble-box">
+          <div className="bubble">2</div>
+          <div className="bubble-info">
+            <p className="bubble-info-step">step 2</p>
+            <p className="bubble-info-title">select plan</p>
+          </div>
+        </div>
+        <div className="bubble-box">
+          <div className="bubble">3</div>
+          <div className="bubble-info">
+            <p className="bubble-info-step">step 3</p>
+            <p className="bubble-info-title">add-ons</p>
+          </div>
+        </div>
+        <div className="bubble-box">
+          <div className="bubble">4</div>
+          <div className="bubble-info">
+            <p className="bubble-info-step">step 4</p>
+            <p className="bubble-info-title">summery</p>
+          </div>
+        </div>
       </div>
       <form className="form">
         <h1 className="title">Personal info </h1>
@@ -81,16 +105,16 @@ function Page1({ formData, handleChange }) {
           value={formData.phoneNumber}
         />
         <p className="error-msg">{phNumberErrorMsg}</p>
+        <div className="links-wrapper">
+          <Link
+            to="/page2"
+            className="next-page-btn-page-one"
+            onClick={onNextPage}
+          >
+            next step
+          </Link>
+        </div>
       </form>
-      <div className="links-wrapper">
-        <Link
-          to="/page2"
-          className="next-page-btn-page-one"
-          onClick={onNextPage}
-        >
-          next step
-        </Link>
-      </div>
     </main>
   );
 }

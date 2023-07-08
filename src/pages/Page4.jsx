@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import sidebar from "../assets/images/bg-sidebar-mobile.svg";
+import sidebarDesk from "../assets/images/bg-sidebar-desktop.svg";
 
 function Page4({ planType, formData }) {
   const navigate = useNavigate();
@@ -87,11 +88,36 @@ function Page4({ planType, formData }) {
   return (
     <main>
       <img src={sidebar} alt="" className="side-bar-mob" />
-      <div className="bubble-wrapper">
-        <div className="bubble">1</div>
-        <div className="bubble">2</div>
-        <div className="bubble">3</div>
-        <div className="bubble active">4</div>
+      <img src={sidebarDesk} alt="" className="side-bar-desk" />
+      <div className="bubbles-wrapper">
+        <div className="bubble-box">
+          <div className="bubble">1</div>
+          <div className="bubble-info">
+            <p className="bubble-info-step">step 1</p>
+            <p className="bubble-info-title">your info </p>
+          </div>
+        </div>
+        <div className="bubble-box">
+          <div className="bubble">2</div>
+          <div className="bubble-info">
+            <p className="bubble-info-step">step 2</p>
+            <p className="bubble-info-title">select plan</p>
+          </div>
+        </div>
+        <div className="bubble-box">
+          <div className="bubble">3</div>
+          <div className="bubble-info">
+            <p className="bubble-info-step">step 3</p>
+            <p className="bubble-info-title">add-ons</p>
+          </div>
+        </div>
+        <div className="bubble-box">
+          <div className="bubble active">4</div>
+          <div className="bubble-info">
+            <p className="bubble-info-step">step 4</p>
+            <p className="bubble-info-title">summery</p>
+          </div>
+        </div>
       </div>
       <form className="form" onSubmit={handleSubmit}>
         <h1 className="title">FInishing up</h1>
@@ -166,14 +192,11 @@ function Page4({ planType, formData }) {
             </div>
           )}
         </div>
-        <button className="submit-btn">Confirm</button>
+        <div className="links-wrapper">
+          <Link to="/page3">go back</Link>
+          <button className="submit-btn">Confirm</button>
+        </div>
       </form>
-      <div className="links-wrapper">
-        <Link to="/page3">go back</Link>
-        {/* <Link to="/page5" className="next-page-btn">
-          Confirm
-        </Link> */}
-      </div>
     </main>
   );
 }
