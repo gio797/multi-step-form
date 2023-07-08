@@ -193,7 +193,9 @@ function Page4({ planType, formData }) {
           )}
         </div>
         <div className="links-wrapper">
-          <Link to="/page3">go back</Link>
+          <Link to="/page3" className="go-back-btn">
+            go back
+          </Link>
           <button className="submit-btn">Confirm</button>
         </div>
       </form>

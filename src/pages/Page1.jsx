@@ -9,6 +9,7 @@ function Page1({ formData, handleChange }) {
   const [phNumberErrorMsg, setPhNumberErrorMsg] = useState("");
 
   const isInitialRender = useRef(true);
+  const [firstTry, setFirstTry] = useState(true);
 
   // console.log(isInitialRender.current);
 
@@ -21,34 +22,36 @@ function Page1({ formData, handleChange }) {
     formData.phoneNumber.length === 0;
 
   function checkInputs() {
-    if (formData.name.length === 0) {
-      setNameErrorMsg("Please fill in the input field.");
-    } else setNameErrorMsg("");
+    if (!firstTry) {
+      if (formData.name.length === 0) {
+        setNameErrorMsg("Please fill in the input field.");
+      } else setNameErrorMsg("");
 
-    if (formData.eMail.length === 0) {
-      setMailErrorMsg("Please fill in the input field.");
-    } else if (!formData.eMail.includes("@")) {
-      setMailErrorMsg("The email address is not formatted correctly");
-    } else setMailErrorMsg("");
+      if (formData.eMail.length === 0) {
+        setMailErrorMsg("Please fill in the input field.");
+      } else if (!formData.eMail.includes("@")) {
+        setMailErrorMsg("The email address is not formatted correctly");
+      } else setMailErrorMsg("");
 
-    if (formData.phoneNumber.length === 0) {
-      setPhNumberErrorMsg("Please fill in the input field.");
-    } else setPhNumberErrorMsg("");
+      if (formData.phoneNumber.length === 0) {
+        setPhNumberErrorMsg("Please fill in the input field.");
+      } else setPhNumberErrorMsg("");
+    }
   }
 
   useEffect(() => {
     if (isInitialRender.current) {
       isInitialRender.current = false;
-      return;
     } else {
       checkInputs();
       console.log(formData.name, nameErrorMsg);
     }
-  }, [formData.name, formData.eMail, formData.phoneNumber]);
+  }, [formData.name, formData.eMail, formData.phoneNumber, firstTry]);
 
   function onNextPage(event) {
     if (isLinkDisabled) {
       event.preventDefault();
+      setFirstTry(false);
       checkInputs();
     }
   }
@@ -118,7 +121,7 @@ function Page1({ formData, handleChange }) {
         <input
           placeholder="e.g. +1 234 567 890"
           className="input"
-          type="tel"
+          type="number"
           name="phoneNumber"
           id="ph-number"
           onChange={handleChange}

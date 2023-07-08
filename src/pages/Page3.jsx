@@ -145,7 +145,9 @@ function Page3({ formData, handleChange, planType }) {
           </>
         )}
         <div className="links-wrapper">
-          <Link to="/page2">go back</Link>
+          <Link to="/page2" className="go-back-btn">
+            go back
+          </Link>
           <Link to="/page4" className="next-page-btn">
             next step
           </Link>

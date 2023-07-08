@@ -14,7 +14,7 @@ function Page2({ formData, handleChange, planType, handlePlanType }) {
   function onNextPage(event) {
     if (isLinkDisabled) {
       event.preventDefault();
-      setErrorMsg("Please choose option");
+      setErrorMsg("A step is submitted, but no selection has been made");
     }
   }
 
@@ -164,7 +164,9 @@ function Page2({ formData, handleChange, planType, handlePlanType }) {
           <span> Yearly</span>
         </button>
         <div className="links-wrapper">
-          <Link to="/">go back</Link>
+          <Link to="/" className="go-back-btn">
+            go back
+          </Link>
           <Link to="/page3" className="next-page-btn" onClick={onNextPage}>
             next step
           </Link>

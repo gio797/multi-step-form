@@ -32,6 +32,8 @@ body {
 
 .error-msg {
   color: var(--Strawberry-red);
+  height: 5px;
+  text-align: right;
 }
 
 .title {
@@ -163,6 +165,7 @@ input[type="radio"]:checked + label {
 .links-wrapper {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   position: relative;
   top: 180px;
 }
@@ -195,6 +198,11 @@ input[type="radio"]:checked + label {
   color: var(--White);
   padding: 10px 20px;
   border-radius: 5px;
+}
+
+.go-back-btn {
+  text-decoration: none;
+  color: var(--Marine-blue);
 }
 
 .checkbox-wrapper {
