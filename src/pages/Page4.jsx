@@ -87,53 +87,65 @@ function Page4({ planType, formData }) {
   return (
     <main>
       <img src={sidebar} alt="" className="side-bar-mob" />
+      <div className="bubble-wrapper">
+        <div className="bubble">1</div>
+        <div className="bubble">2</div>
+        <div className="bubble">3</div>
+        <div className="bubble active">4</div>
+      </div>
       <form className="form" onSubmit={handleSubmit}>
         <h1 className="title">FInishing up</h1>
         <p className="text">
           Double-check everything looks ok before confirming.
         </p>
         <div>
-          <h2>{formData.plan}</h2>
-          {planType ? <p>${planPrice}/mo</p> : <p>${planPrice}/yr</p>}
+          <div className="main-price-wrapper">
+            <h3 className="title">{formData.plan}</h3>
+            {planType ? (
+              <h3 className="title">${planPrice}/mo</h3>
+            ) : (
+              <h3 className="title">${planPrice}/yr</h3>
+            )}
+          </div>
           <hr />
 
           {monthlyOnlineService ? (
-            <div>
+            <div className="price-wrapper">
               <p>Online service</p>
               <p>${monthlyOnlineService}/mo</p>
             </div>
           ) : null}
 
           {monthlyLargeStorage ? (
-            <div>
+            <div className="price-wrapper">
               <p>Large Storage</p>
               <p>${monthlyLargeStorage}/mo</p>
             </div>
           ) : null}
 
           {monthlyCustomizableProfile ? (
-            <div>
+            <div className="price-wrapper">
               <p>Customizable profile</p>
               <p>${monthlyCustomizableProfile}/mo</p>
             </div>
           ) : null}
 
           {yearlyOnlineService ? (
-            <div>
+            <div className="price-wrapper">
               <p>Online service</p>
               <p>${yearlyOnlineService}/yr</p>
             </div>
           ) : null}
 
           {yearlyLargeStorage ? (
-            <div>
+            <div className="price-wrapper">
               <p>Large Storage</p>
               <p>${yearlyLargeStorage}/yr</p>
             </div>
           ) : null}
 
           {yearlyCustomizableProfile ? (
-            <div>
+            <div className="price-wrapper">
               <p>Customizable profile</p>
               <p>${yearlyCustomizableProfile}/yr</p>
             </div>
@@ -143,18 +155,18 @@ function Page4({ planType, formData }) {
           <br />
 
           {planType ? (
-            <div>
+            <div className="price-wrapper">
               <p>Total(per month)</p>
-              <p>${total}/mo</p>
+              <p className="t-price">${total}/mo</p>
             </div>
           ) : (
-            <div>
+            <div className="price-wrapper">
               <p>Total(per year)</p>
-              <p>${total}/yr</p>
+              <p className="t-price">${total}/yr</p>
             </div>
           )}
         </div>
-        <button className="next-page-btn">confirm</button>
+        <button className="submit-btn">Confirm</button>
       </form>
       <div className="links-wrapper">
         <Link to="/page3">go back</Link>

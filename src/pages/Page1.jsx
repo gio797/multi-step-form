@@ -7,23 +7,40 @@ function Page1({ formData, handleChange }) {
   const [mailErrorMsg, setMailErrorMsg] = useState("");
   const [phNumberErrorMsg, setPhNumberErrorMsg] = useState("");
 
+  const isEmailCorrect =
+    formData.eMail.length === 0 || !formData.eMail.includes("@");
+
   const isLinkDisabled =
     formData.name.length === 0 ||
-    formData.eMail.length === 0 ||
-    formData.phoneNumber.length === 0; // Modify the condition as needed
+    isEmailCorrect ||
+    formData.phoneNumber.length === 0;
 
   function onNextPage(event) {
     if (isLinkDisabled) {
       event.preventDefault();
-      setNameErrorMsg("Please fill in the input field.");
-      setMailErrorMsg("Please fill in the input field.");
-      setPhNumberErrorMsg("Please fill in the input field.");
+      if (formData.name.length === 0) {
+        setNameErrorMsg("Please fill in the input field.");
+      }
+      if (formData.eMail.length === 0) {
+        setMailErrorMsg("Please fill in the input field.");
+      } else if (!formData.eMail.includes("@")) {
+        setMailErrorMsg("The email address is not formatted correctly");
+      }
+      if (formData.phoneNumber.length === 0) {
+        setPhNumberErrorMsg("Please fill in the input field.");
+      }
     }
   }
 
   return (
     <main>
       <img src={sidebar} alt="" className="side-bar-mob" />
+      <div className="bubble-wrapper">
+        <div className="bubble active">1</div>
+        <div className="bubble">2</div>
+        <div className="bubble">3</div>
+        <div className="bubble">4</div>
+      </div>
       <form className="form">
         <h1 className="title">Personal info </h1>
         <p className="text">

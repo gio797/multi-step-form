@@ -2,11 +2,17 @@ import React from "react";
 import sidebar from "../assets/images/bg-sidebar-mobile.svg";
 import img from "../assets/images/icon-thank-you.svg";
 
-function Page5({ planType, formData }) {
+function Page5() {
   return (
     <main>
       <img src={sidebar} alt="" className="side-bar-mob" />
-      <form className="form">
+      <div className="bubble-wrapper">
+        <div className="bubble">1</div>
+        <div className="bubble">2</div>
+        <div className="bubble">3</div>
+        <div className="bubble active">4</div>
+      </div>
+      <form className="form page5">
         <img src={img} alt="icon" className="thank-you-icon" />
         <h1 className="title">Thank you</h1>
         <p className="text">

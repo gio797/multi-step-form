@@ -20,6 +20,12 @@ function Page2({ formData, handleChange, planType, handlePlanType }) {
   return (
     <main>
       <img src={sidebar} alt="" className="side-bar-mob" />
+      <div className="bubble-wrapper">
+        <div className="bubble">1</div>
+        <div className="bubble active">2</div>
+        <div className="bubble">3</div>
+        <div className="bubble">4</div>
+      </div>
       <form className="form">
         <h1 className="title">Select your plan</h1>
         <p className="text">You have the option of monthly or yearly billing</p>

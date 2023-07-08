@@ -6,6 +6,12 @@ function Page3({ formData, handleChange, planType }) {
   return (
     <main>
       <img src={sidebar} alt="" className="side-bar-mob" />
+      <div className="bubble-wrapper">
+        <div className="bubble">1</div>
+        <div className="bubble">2</div>
+        <div className="bubble active">3</div>
+        <div className="bubble">4</div>
+      </div>
       <form className="form">
         <h1 className="title">Pick add-ons</h1>
         <p className="text">Add-ons help enhance your gaming experience</p>
