@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import sidebar from "../assets/images/bg-sidebar-mobile.svg";
+import sidebarDesk from "../assets/images/bg-sidebar-desktop.svg";
 
 function Page1({ formData, handleChange }) {
   const [nameErrorMsg, setNameErrorMsg] = useState("");
@@ -35,6 +36,7 @@ function Page1({ formData, handleChange }) {
   return (
     <main>
       <img src={sidebar} alt="" className="side-bar-mob" />
+      <img src={sidebarDesk} alt="" className="side-bar-desk" />
       <div className="bubble-wrapper">
         <div className="bubble active">1</div>
         <div className="bubble">2</div>
@@ -80,10 +82,15 @@ function Page1({ formData, handleChange }) {
         />
         <p className="error-msg">{phNumberErrorMsg}</p>
       </form>
-
-      <Link to="/page2" className="next-page-btn-page-one" onClick={onNextPage}>
-        next step
-      </Link>
+      <div className="links-wrapper">
+        <Link
+          to="/page2"
+          className="next-page-btn-page-one"
+          onClick={onNextPage}
+        >
+          next step
+        </Link>
+      </div>
     </main>
   );
 }

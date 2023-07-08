@@ -27,6 +27,7 @@
 body {
   font-family: "Ubuntu", sans-serif;
   background-color: var(--Magnolia);
+  height: 100vh;
 }
 
 .error-msg {
@@ -46,6 +47,7 @@ body {
 label {
   color: var(--Marine-blue);
   font-weight: 500;
+  cursor: pointer;
 }
 
 .input {
@@ -83,6 +85,10 @@ input[type="radio"]:checked + label {
 
 .side-bar-mob {
   width: 100%;
+}
+
+.side-bar-desk {
+  display: none;
 }
 
 .bubble-wrapper {
@@ -222,8 +228,57 @@ input[type="radio"]:checked + label {
   font-family: inherit;
   font-size: 1rem;
   border: none;
-
+  cursor: pointer;
   color: var(--White);
   padding: 10px 20px;
   border-radius: 5px;
+}
+
+@media (min-width: 500px) {
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  main {
+    background-color: var(--White);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 10px 11px 21px 1px rgba(128, 119, 119, 0.75);
+    -webkit-box-shadow: 10px 11px 21px 1px rgba(128, 119, 119, 0.75);
+    -moz-box-shadow: 10px 11px 21px 1px rgba(128, 119, 119, 0.75);
+  }
+
+  .side-bar-mob {
+    display: none;
+  }
+
+  .side-bar-desk {
+    display: unset;
+  }
+
+  .form {
+    position: unset;
+    box-shadow: unset;
+  }
+
+  .bubble-wrapper {
+    /* position: rel; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    top: -130px;
+    left: -200px;
+    gap: 20px;
+  }
+
+  .links-wrapper {
+    position: relative;
+    top: 250px;
+    left: -300px;
+  }
 }
